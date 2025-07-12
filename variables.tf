@@ -1,9 +1,9 @@
 variable "aws_region" {
-  description = "AWS region to deploy infrastructure"
+  description = "AWS region to deploy resources in"
   type        = string
 }
 
 variable "project_name" {
-  description = "Project name used for resource naming"
+  description = "Prefix for resource names"
   type        = string
 }
