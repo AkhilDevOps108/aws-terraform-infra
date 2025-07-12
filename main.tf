@@ -1,20 +1,8 @@
-resource "aws_s3_bucket" "app_bucket" {
-  bucket         = "${var.project_name}-bucket"
-  force_destroy  = true
-
-  tags = {
-    Name = "${var.project_name}-bucket"
-  }
+module "vpc" {
+  source          = "./modules/vpc"
+  project_name    = var.project_name
+  vpc_cidr        = "10.0.0.0/16"
+  public_subnets  = ["10.0.1.0/24", "10.0.2.0/24"]
+  private_subnets = ["10.0.3.0/24", "10.0.4.0/24"]
+  azs             = ["ap-south-1a", "ap-south-1b"]
 }
-
-resource "aws_s3_bucket_ownership_controls" "ownership" {
-  bucket = aws_s3_bucket.app_bucket.id
-
-  rule {
-    object_ownership = "BucketOwnerEnforced"
-  }
-}
-
-resource "aws_s3_bucket_public_access_block" "public_access" {
-  bucket = aws_s3_bucket.app_bucket.id
- }
