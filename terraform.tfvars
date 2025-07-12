@@ -1,2 +1,2 @@
-aws_region = "us-east-1"
-project_name = "my-production"
+aws_region   = "ap-south-1"
+project_name = "my-mumbai-app"
