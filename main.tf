@@ -17,5 +17,3 @@ resource "aws_s3_bucket_ownership_controls" "ownership" {
 
 resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket = aws_s3_bucket.app_bucket.id
-
-  b
